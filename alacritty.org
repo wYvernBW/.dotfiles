@@ -1,0 +1,108 @@
+#+TITLE: Alacritty Config
+#+PROPERTY: header-args :tangle ~/Appdata/Roaming/alacritty/alacritty.yml
+
+* TABLE OF CONTENTS :toc:
+- [[#alacritty-config][ALACRITTY CONFIG]]
+- [[#font][FONT]]
+- [[#window][WINDOW]]
+- [[#shell][SHELL]]
+- [[#colors][COLORS]]
+  - [[#forest-night][FOREST NIGHT]]
+
+* ALACRITTY CONFIG
+
+This is my config for the Alacritty terminal emulator.
+
+#+BEGIN_EXAMPLE
+_       ___   ___   __
+\ \ /\ / / | | \ \ / /
+ \ V  V /| |_| |\ V /     my github : www.github.com/wYvernBW
+  \_/\_/  \__, | \_/
+           __/ |      BW
+          |___/
+#+END_EXAMPLE
+
+* FONT
+
+Change font settings such as the family, style, size and others.
+
+#+BEGIN_SRC yaml
+
+font:
+  #Normal (roman) font face
+  normal:
+    family:
+      "Fira Code"
+    style:
+      "Medium"
+
+  size: 12.0
+
+#+END_SRC
+
+* WINDOW
+
+Change window settings such as size, padding, position.
+
+#+BEGIN_SRC yaml
+
+window:
+  dimensions:
+    columns: 88
+    lines: 28
+
+  padding:
+    x: 24
+
+#+END_SRC
+
+* SHELL
+
+Change the default shell alacritty uses. Currently it is set to the git bash.
+
+#+BEGIN_SRC yaml
+
+shell:
+  program:
+    "C:/Program Files/Git/bin/bash.exe"
+  args:
+    - --login
+
+working_directory: "C:/Users/calin"
+
+#+END_SRC
+
+* COLORS
+
+Color schemes.
+
+** FOREST NIGHT
+
+#+BEGIN_SRC yaml
+
+colors:
+  primary:
+    background: '#3c474d'
+    foreground: '#d8caac'
+
+  normal:
+    black:   '#3c474d'
+    red:     '#e68183'
+    green:   '#89beba'
+    yellow:  '#d9bb80'
+    blue:    '#a7c080'
+    magenta: '#d3a0bc'
+    cyan:    '#87c095'
+    white:   '#eaeaea'
+
+  bright:
+    black:   '#3c474d'
+    red:     '#e68183'
+    green:   '#89beba'
+    yellow:  '#d9bb80'
+    blue:    '#89beba'
+    magenta: '#d3a0bc'
+    cyan:    '#87c095'
+    white:   '#ffffff'
+
+#+END_SRC
