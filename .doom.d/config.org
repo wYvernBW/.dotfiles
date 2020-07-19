@@ -1,0 +1,243 @@
+#+TITLE: Doom Config
+#+PROPERTY: header-args :tangle ~/.doom.d/config.el
+
+* TABLE OF CONTENTS :toc:
+- [[#doom-config][Doom Config]]
+- [[#font][FONT]]
+- [[#packages][PACKAGES]]
+  - [[#load-path][Load Path]]
+  - [[#major-modes][Major modes]]
+  - [[#minor-modes][Minor modes]]
+  - [[#file-managing-and-navigating][File managing and navigating]]
+  - [[#looks][Looks]]
+  - [[#autocomplete][Autocomplete]]
+- [[#tweaks][TWEAKS]]
+  - [[#set-email-address][Set email address]]
+  - [[#enable-evil-mode-fine-undo][Enable evil-mode fine undo]]
+  - [[#disable-evil-mode-autocopy][Disable evil-mode autocopy]]
+  - [[#shell][Shell]]
+- [[#theme][THEME]]
+  - [[#set-theme][Set theme]]
+  - [[#transparent-background][Transparent Background]]
+  - [[#doom-theme-support-for-neotree][Doom theme support for neotree]]
+  - [[#show-line-numbers][Show line numbers]]
+- [[#orgmode][ORGMODE]]
+- [[#additional-functions][ADDITIONAL FUNCTIONS]]
+
+* Doom Config
+
+ ----------------------------------------------------------------------
+ __      _ _  _ _ _  _
+ \ \ /\ / / | | \ \ / /
+  \ V  V /| |_| |\ V /      github: https://github.com/wYvernBW
+   \_/\_/  \__, | \_/ BW
+            __/ |
+           |___/
+ ----------------------------------------------------------------------
+
+* FONT
+
+(setq doom-font (font-spec :family "monospace" :size 12 :weight 'semi-light)
+     doom-variable-pitch-font (font-spec :family "sans" :size 13))
+
+set the font and the font size.
+
+#+BEGIN_SRC elisp
+
+(setq doom-font (font-spec :family "Fira Mono" :size 15 )
+       doom-variable-pitch-font (font-spec :family "Fira Mono" :size 15 ))
+
+#+END_SRC
+
+* PACKAGES
+
+set the load path and require any packages i have installed.
+
+** Load Path
+
+#+BEGIN_SRC elisp
+(add-load-path! "C:/Users/calin/.emacs.d/.local/elpa")
+#+END_SRC
+
+** Major modes
+
+#+BEGIN_SRC elisp
+(require 'json-mode)
+(require 'gdscript-mode)
+(require 'vimrc-mode)
+(require 'yaml-mode)
+#+END_SRC
+
+** Minor modes
+
+#+BEGIN_SRC elisp
+(require 'emmet-mode)
+(require 'sublimity)
+(require 'sublimity-scroll)
+;; (require 'sublimity-map) ;; experimental
+;; (require 'sublimity-attractive)
+
+(setq sublimity-scroll-weight 10
+      sublimity-scroll-drift-length 5)
+
+(sublimity-mode 1)
+#+END_SRC
+
+** File managing and navigating
+
+#+BEGIN_SRC elisp
+(require 'treemacs)
+(require 'neotree)
+#+END_SRC
+
+** Looks
+
+#+BEGIN_SRC elisp
+(require 'doom-themes)
+#+END_SRC
+
+** Autocomplete
+
+#+BEGIN_SRC elisp
+(require 'company)
+(add-hook 'after-init-hook 'global-company-mode)
+#+END_SRC
+
+* TWEAKS
+** Set email address
+
+Some functionality uses this to identify you, e.g. GPG configuration, email
+clients, file templates and snippets.
+
+#+BEGIN_SRC elisp
+(setq user-mail-address "iamwyvern411@gmail.com")
+#+END_SRC
+
+** Enable evil-mode fine undo
+
+#+BEGIN_SRC elisp
+(setq evil-want-fine-undo 't)
+#+END_SRC
+
+** Disable evil-mode autocopy
+
+#+BEGIN_SRC elisp
+(setq-default evil-kill-on-visual-paste nil)
+#+END_SRC
+
+** Shell
+
+set the shell to git bash.
+
+#+BEGIN_SRC elisp
+
+(setq binary-process-input t)
+(setq w32-quote-process-args ?\")
+(setenv "SHELL" shell-file-name)
+(setq explicit-shell-file-name "C:/Program Files/Git/git-bash.exe")
+;;(setq explicit-shell-file-name "wt.exe")
+(setq explicit-sh-args '("-login" "-i"))
+
+#+END_SRC
+
+* THEME
+
+** Set theme
+
+There are two ways to load a theme. Both assume the theme is installed and
+available. You can either set `doom-theme' or manually load a theme with the
+`load-theme' function. This is the default (that i tweaked):
+
+#+BEGIN_SRC elisp
+(setq doom-theme 'doom-palenight)
+#+END_SRC
+
+** Transparent Background
+
+#+BEGIN_SRC elisp
+(set-frame-parameter (selected-frame) 'alpha '(96 . 100))
+(add-to-list 'default-frame-alist '(alpha . (96 . 100)))
+#+END_SRC
+
+** Doom theme support for neotree
+
+add doom theme support for neotree
+
+#+BEGIN_SRC elisp
+(doom-themes-neotree-config)
+#+END_SRC
+
+Enable all-the-icons beautiful icons for the Neotree doom theme
+
+#+BEGIN_SRC elisp
+(setq doom-neotree-enable-file-icons t)
+(setq doom-neotree-enable-folder-icons t)
+(setq doom-neotree-enable-chevron-icons t)
+#+END_SRC
+
+Enables different colors for different file types for the Neotree doom theme
+
+#+BEGIN_SRC elisp
+(setq doom-neotree-enable-type-colors t)
+#+END_SRC
+
+Set neotree icons type
+
+#+BEGIN_SRC elisp
+(setq doom-themes-neotree-file-icons 'simple)
+#+END_SRC
+
+
+** Show line numbers
+This determines the style of line numbers in effect. If set to `nil', line
+numbers are disabled. For relative line numbers, set this to `relative'.
+
+#+BEGIN_SRC elisp
+(setq display-line-numbers-type t)
+#+END_SRC
+
+* ORGMODE
+
+If you use `org' and don't want your org files in the default location below,
+change `org-directory'. It must be set before org loads!
+
+#+BEGIN_SRC elisp
+(setq org-directory "D:/documents/orgmode")
+#+END_SRC
+
+* ADDITIONAL FUNCTIONS
+
+Here are some additional functions/macros that could help you configure Doom:
+
+- `load!' for loading external *.el files relative to this one
+- `use-package' for configuring packages
+- `after!' for running code after a package has loaded
+- `add-load-path!' for adding directories to the `load-path', relative to
+  this file. Emacs searches the `load-path' when you load packages with
+  `require' or `use-package'.
+- `map!' for binding new keys
+
+To get information about any of these functions/macros, move the cursor over
+the highlighted symbol at press 'K' (non-evil users must press 'C-c g k').
+This will open documentation for it, including demos of how they are used.
+
+You can also try 'gd' (or 'C-c g d') to jump to their definition and see how
+they are implemented.
+
+#+BEGIN_SRC elisp
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(org-agenda-files '("d:/documents/orgmode/todo.org"))
+ '(package-selected-packages
+   '(sublimity vimrc-mode yaml-mode company doom-themes neotree treemacs emmet-mode gdscript-mode json-mode)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+(put 'customize-variable 'disabled nil)
+#+END_SRC
