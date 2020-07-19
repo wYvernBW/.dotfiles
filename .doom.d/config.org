@@ -31,7 +31,7 @@
 #+BEGIN_EXAMPLE
 _       ___   ___   __
 \ \ /\ / / | | \ \ / /
- \ V  V /| |_| |\ V /    [[github:wYvernBW][my github]]
+ \ V  V /| |_| |\ V /     my github : www.github.com/wYvernBW
   \_/\_/  \__, | \_/
            __/ |      BW
           |___/
