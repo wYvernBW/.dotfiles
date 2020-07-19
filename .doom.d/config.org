@@ -26,13 +26,16 @@
 
 * Doom Config
 
-[[github:wYvernBW][my github]]
+
+
+#+BEGIN_EXAMPLE
 _       ___   ___   __
 \ \ /\ / / | | \ \ / /
- \ V  V /| |_| |\ V /
+ \ V  V /| |_| |\ V /    [[github:wYvernBW][my github]]
   \_/\_/  \__, | \_/
-           __/ |
+           __/ |      BW
           |___/
+#+END_EXAMPLE
 
 * FONT
 
