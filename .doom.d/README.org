@@ -26,14 +26,16 @@
 
 * Doom Config
 
- ----------------------------------------------------------------------
- __      _ _  _ _ _  _
- \ \ /\ / / | | \ \ / /
-  \ V  V /| |_| |\ V /      github: https://github.com/wYvernBW
-   \_/\_/  \__, | \_/ BW
-            __/ |
-           |___/
- ----------------------------------------------------------------------
+
+
+#+BEGIN_EXAMPLE
+_       ___   ___   __
+\ \ /\ / / | | \ \ / /
+ \ V  V /| |_| |\ V /     my github : www.github.com/wYvernBW
+  \_/\_/  \__, | \_/
+           __/ |      BW
+          |___/
+#+END_EXAMPLE
 
 * FONT
 
@@ -203,6 +205,12 @@ change `org-directory'. It must be set before org loads!
 
 #+BEGIN_SRC elisp
 (setq org-directory "D:/documents/orgmode")
+#+END_SRC
+
+Allow shift select.
+
+#+BEGIN_SRC elisp
+(setq org-support-shift-select t)
 #+END_SRC
 
 * ADDITIONAL FUNCTIONS
